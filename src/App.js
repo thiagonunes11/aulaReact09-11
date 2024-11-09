@@ -1,23 +1,24 @@
-import logo from './logo.svg';
+import Settings from './components/settings'
 import './App.css';
+import ProfileCard from './components/ProfileCard'
+import withPermission from './components/withPermission'
+
 
 function App() {
+  const ProtectedSettings = withPermission(Settings);
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      
+      <ProfileCard
+        name="Thiago"
+        bio="QA Manager"
+        imageUrl="https://media.licdn.com/dms/image/v2/D4D03AQE7MeEAiommYQ/profile-displayphoto-shrink_800_800/profile-displayphoto-shrink_800_800/0/1672850111228?e=1736380800&v=beta&t=qNKEhdhdBArouHhWt_b30aTa6AQr9-lXoUpeBYg3XAo"
+      />
+
+      <h1>Testando</h1>
+      <ProtectedSettings hasPermission={false} />
+
+
     </div>
   );
 }
